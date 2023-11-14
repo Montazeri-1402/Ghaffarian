@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <style>
+        .Container{
+            flex-direction: row;
+            display: flex;
+        }
+        .input{
+            flex-direction: column;
+
+            display: flex;  
+            align-items: auto;         
+           
+        }
+        #in1{
+            margin: 20px;
+        }
+        #in2{
+            margin: 20px;
+        }
+        #in3{
+            margin: 20px;
+        }
+        .more{
+            flex-direction: column;
+
+            display: flex;  
+            align-items: center;   
+        }
+    </style>
+</head>
+<body>
+    <!--Task 1-->
+    <div class="Container">
+        <h1 style="margin: 5%;">Task1 JavaScript</h1>
+        <div class="input">
+            <h3>1<input type="text" id="in1">Number</h3>
+            <h3>2<input type="text" id="in2">Number</h3>
+            <h3>3<input type="text" id="in3" required>Math Operator</h3>
+            <hr><button id="btn" style="width: 100px;align-self: center;">click</button>
+        </div>
+        <div class="more">
+            <p id="text">
+                
+            </p>
+            <p >
+                please give me 2 Number and 1 Math Operator
+            </p>
+        </div>
+
+    </div>
+    <!--Task1 Ended :)-->
+    <!--Task2 Start-->
+    <div class="Container2">
+        <h1>task 2</h1>
+        <div class="Content">
+            <h2> This is our object {type:"Fiat", model:"500", color:"white"}</h2><br><hr>
+            <h2>Enter your key  here ==>><input id="in2_2" type="text" style="border: 5px; border-color: black;" ></h2><hr>
+            <button id="btn2_1"style=" width: 100px;align-self: center;">Click</button>
+            <p id="text2_1">
+                svgs 
+            </p>
+
+        </div>
+
+    </div>
+    
+   
+    <script>
+       //---------------------------------------------------------------------------
+       //Task 1 
+       //----------------------------------------------------------------------------
+       let btn = document.getElementById("btn");
+       btn.addEventListener("click",operator);
+       function operator(){
+        let in1= parseInt(document.getElementById('in1').value);
+        let in2= parseInt(document.getElementById('in2').value);
+        let in3= String(document.getElementById('in3').value);
+       
+        switch (in3){
+            case '/':
+            
+                let res1 = in1 / in2;
+                document.getElementById('text').innerHTML= `${in1} /${in2} = ${res1} `
+                break;
+
+            case '*':
+                let res2 = in1 * in2;
+                document.getElementById('text').innerHTML= `${in1} * ${in2} = ${res2} `
+                break;
+            
+            case '+':
+                let res3 = in1 + in2;
+                document.getElementById('text').innerHTML= `${in1} + ${in2} = ${res3} `
+                break;
+            
+            case '-':
+                let res4 = in1 - in2;
+                document.getElementById('text').innerHTML= `${in1} - ${in2} = ${res4} `
+                break;
+        }
+       }
+       //----------------------------------------------------------------------
+       //task 2
+       //----------------------------------------------------------------------
+     
+       document.getElementById('btn2_1').addEventListener('click',objFinder)
+        
+      
+       
+       function objFinder() {
+
+            let in2_2 = document.getElementById('in2_2').value;
+            let obj = {type:"Fiat", model:"500", color:"white"};
+            let attemp = 1;
+            for (let key in obj) {
+                    
+                    if(key == in2_2){
+                        
+                        document.getElementById('text2_1').innerHTML = "the Object with Entered key Exist"+ ` - key: ${key}`
+                       
+                    }
+
+                    else{
+                        document.getElementById('text2_1').innerHTML = "the Object with Entered key dose not Exist" +`Looking for ${in2_2}`
+                        
+                        
+                        
+                    }
+               
+            }
+        }
+        //----------------------------------------------------------------------------
+        //task3         Didnt Underestand 
+        //----------------------------------------------------------------------------
+        function fun2(a,objFinder)
+        {
+            a = {name:"ali",age:20,sec:{name:"mamad",age:20}}
+            return    objFinder(a)
+        }
+    //---------------------???----------------------------------------------------------
+
+
+    </script>
+</body>
+</html>
